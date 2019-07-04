@@ -64,7 +64,7 @@ export class Converter {
           str =
             str + `{${height},{${r},${g},${b}}}${isLastLine ? "\n" : ",\n"}`;
         }
-        str = str + `}\n`;
+        str = str + `}\n\n`;
       }
     } finally {
       hImage.removeCanvas();

@@ -22,6 +22,18 @@ const GitHubLink = props => (
   </div>
 );
 
+const comment = `--[[ 
+  You can copy to your projects workspace ModuleScript file. 
+  but replace _G.Heightmap = h with return h
+  And run it in
+  Command Bar with command:
+   _G.Heightmap = require (workspace.ModuleScript)
+
+ 
+  
+  If you need to switch Heightmaps then set it null (
+    _G.Heightmap = null) and then run again
+  ]]--`;
 const Heading = props => <h1 className="heading">Colors to Lua</h1>;
 
 export const App = () => {
@@ -33,7 +45,7 @@ export const App = () => {
   useEffect(() => {
     if (heightImage) {
       const converter = new Converter(heightImage, colorImage);
-      setCodeResult(converter.parseImage());
+      setCodeResult(comment + "\n" + converter.parseImage());
     }
   }, [heightImage, colorImage]);
 
