@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/colors-to-lua/precache-manifest.bf054bd0f686694e600c293a5644fc9e.js"
+  "/colors-to-lua/precache-manifest.111973ab1f68e761d3d8978c25071b24.js"
 );
 
 self.addEventListener('message', (event) => {
