@@ -12,6 +12,7 @@ const options = {
 export const Editor = ({ codeResult }) => {
   return (
     <MonacoEditor
+      width="100%"
       height={600}
       language="lua"
       theme="vs-dark"

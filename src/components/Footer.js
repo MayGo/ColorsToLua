@@ -1,12 +1,18 @@
 import React from "react";
+import { Box } from "rebass";
 
 export const Footer = props => (
-  <footer style={{ marginTop: 5 }}>
+  <Box as="footer">
     <p>
-      Made with ❤️ by{" "}
-      <a className="link" href="https://maygo.github.io/" target="_blank">
+      Made by{" "}
+      <a
+        className="link"
+        href="https://maygo.github.io/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         MayGo
       </a>
     </p>
-  </footer>
+  </Box>
 );

@@ -1,11 +1,12 @@
 import React from "react";
 import DropZone from "react-dropzone";
 import { Camera } from "styled-icons/boxicons-regular/Camera";
-import { Button } from "rebass";
+import { Button, Flex } from "rebass";
 import {
   PreviewWrapper,
   PreviewImage,
-  DropZoneWrapper
+  DropZoneWrapper,
+  CameraIconWrapper
 } from "./ImageUploadPreview.styles";
 
 export const ImageUploadPreview = ({ image, setImage, title }) => {
@@ -26,7 +27,6 @@ export const ImageUploadPreview = ({ image, setImage, title }) => {
   };
   return (
     <PreviewWrapper>
-      {image && <PreviewImage src={image.src} />}
       <DropZoneWrapper>
         <DropZone
           accept="image/jpeg, image/png"
@@ -35,11 +35,23 @@ export const ImageUploadPreview = ({ image, setImage, title }) => {
           style={{}}
         >
           {({ getRootProps, getInputProps }) => (
-            <div {...getRootProps()}>
+            <Flex
+              flexDirection="column"
+              {...getRootProps()}
+              justifyContent="space-between"
+            >
               <input {...getInputProps()} />
-              <Camera />
-              <Button>{title}</Button>
-            </div>
+              {image && <PreviewImage src={image.src} />}
+              {!image && (
+                <CameraIconWrapper>
+                  <Camera />
+                </CameraIconWrapper>
+              )}
+
+              <Button m={10} bg="#1771F1">
+                {title}
+              </Button>
+            </Flex>
           )}
         </DropZone>
       </DropZoneWrapper>

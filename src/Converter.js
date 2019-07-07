@@ -6,16 +6,14 @@
 
   https://github.com/lokesh/color-thief/blob/master/src/color-thief.js
 */
-var CanvasImage = function(image) {
-  this.canvas = document.createElement("canvas");
+var CanvasImage = function(imageData) {
+  this.canvas = new OffscreenCanvas(imageData.width, imageData.height);
   this.context = this.canvas.getContext("2d");
 
-  document.body.appendChild(this.canvas);
+  this.width = imageData.width;
+  this.height = imageData.height;
 
-  this.width = this.canvas.width = image.width;
-  this.height = this.canvas.height = image.height;
-
-  this.context.drawImage(image, 0, 0, this.width, this.height);
+  this.context.putImageData(imageData, 0, 0);
 };
 
 CanvasImage.prototype.clear = function() {
@@ -38,43 +36,36 @@ CanvasImage.prototype.removeCanvas = function() {
   this.canvas.parentNode.removeChild(this.canvas);
 };
 
-export class Converter {
-  constructor(heightImage, colorImage) {
-    this.heightImage = heightImage;
-    this.colorImage = colorImage || heightImage;
-  }
+export function parseImage(heightImage, colorImage) {
+  const hImage = new CanvasImage(heightImage);
+  const cImage = new CanvasImage(colorImage || heightImage);
 
-  parseImage() {
-    const hImage = new CanvasImage(this.heightImage);
-    const cImage = new CanvasImage(this.colorImage);
+  let str = "h = {}\n";
 
-    let str = "h = {}\n";
+  try {
+    for (var h = 0; h < cImage.height; h++) {
+      str = str + `h[${h + 1}]={\n`;
+      for (var w = 0; w < cImage.width; w++) {
+        const heightPixels = hImage.context.getImageData(w, h, 1, 1).data;
+        const pixels = cImage.context.getImageData(w, h, 1, 1).data;
 
-    try {
-      for (var h = 0; h < cImage.height; h++) {
-        str = str + `h[${h + 1}]={\n`;
-        for (var w = 0; w < cImage.width; w++) {
-          const heightPixels = hImage.context.getImageData(w, h, 1, 1).data;
-          const pixels = cImage.context.getImageData(w, h, 1, 1).data;
+        const [r, g, b] = pixels;
 
-          const [r, g, b, a] = pixels;
-
-          const isLastLine = w + 1 === hImage.width;
-          const height = heightPixels[0];
-          str =
-            str + `{${height},{${r},${g},${b}}}${isLastLine ? "\n" : ",\n"}`;
-        }
-        str = str + `}\n\n`;
+        const isLastLine = w + 1 === hImage.width;
+        const height = heightPixels[0];
+        str = str + `{${height},{${r},${g},${b}}}${isLastLine ? "\n" : ",\n"}`;
       }
-    } finally {
-      hImage.removeCanvas();
-      cImage.removeCanvas();
+      str = str + `}\n\n`;
     }
-    str = str + `_G.Heightmap = h\n`;
-
-    return str;
+  } finally {
+    // hImage.removeCanvas();
+    //cImage.removeCanvas();
   }
+  str = str + `_G.Heightmap = h\n`;
+
+  return str;
 }
+
 /*
 
 h = {}
