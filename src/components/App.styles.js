@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const A = styled.a`
-  color: #2f2f2f;
+  color: #1771f1;
 `;
 export const Heading = styled.h1`
   font-family: "Quicksand", cursive;
