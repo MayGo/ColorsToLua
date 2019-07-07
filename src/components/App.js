@@ -12,7 +12,9 @@ import {
   CopyIconWrapper,
   CopiedText,
   Heading,
-  LoadingWrapper
+  LoadingWrapper,
+  A,
+  Introduction
 } from "./App.styles";
 import { Flex } from "rebass";
 import { GitHubLink } from "./GitHubLink";
@@ -21,7 +23,8 @@ import { imageToArray } from "../image-utils";
 import { WavyLine } from "./WavyLine";
 
 const comment = `--[[ 
-  You can copy to your projects workspace ModuleScript file. 
+  Copy this code to Roblox Command Bar.
+  Or can copy to your projects workspace ModuleScript file. 
   And replace: 
       _G.Heightmap = h
   with: 
@@ -71,6 +74,28 @@ export const App = () => {
   return (
     <Flex flexDirection="column" alignItems="center">
       <Heading>Colors to Lua</Heading>
+      <WavyLine />
+      <Introduction>
+        For generating input for Roblox Studio Heightmaster{" "}
+        <A href="https://github.com/JoeSmaller/Heightmaster" target="_blank">
+          plugin
+        </A>{" "}
+        (
+        <A
+          href="https://www.roblox.com/library/2768461796/Heightmaster"
+          target="_blank"
+        >
+          source
+        </A>
+        ,{" "}
+        <A
+          href="https://devforum.roblox.com/t/heightmaster-a-way-to-convert-heightmaps-and-texturemaps-into-terrain/228585"
+          target="_blank"
+        >
+          blog post
+        </A>
+        ){" "}
+      </Introduction>
       <WavyLine />
       <Flex>
         <ImageUploadPreview

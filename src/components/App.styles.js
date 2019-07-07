@@ -1,5 +1,16 @@
 import styled from "styled-components";
 
+export const A = styled.a`
+  color: #2f2f2f;
+`;
+export const Heading = styled.h1`
+  font-family: "Quicksand", cursive;
+`;
+
+export const Introduction = styled.div`
+  padding: 10px;
+  font-size: 12px;
+`;
 export const CopyIconWrapper = styled.div`
   width: 20px;
   height: 20px;
@@ -24,8 +35,4 @@ export const CopiedText = styled.div`
   top: 15px;
   left: 40px;
   color: blue;
-`;
-
-export const Heading = styled.h1`
-  font-family: "Quicksand", cursive;
 `;
