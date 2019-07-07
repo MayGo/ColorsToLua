@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/colors-to-lua/b1355fd065cb692d7abe.worker.js"
   },
   {
-    "revision": "5ef067641f0f26559b3c2d7f3327b379",
+    "revision": "71f1245b00c5d58020fe30c6fc90d4b2",
     "url": "/colors-to-lua/index.html"
   },
   {
@@ -12,7 +12,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/colors-to-lua/static/css/3.0217ffa6.chunk.css"
   },
   {
-    "revision": "2b018aadbfc703f0c6bf",
+    "revision": "f6f2d4efeb14901b7a8c",
     "url": "/colors-to-lua/static/css/main.5718f346.chunk.css"
   },
   {
@@ -232,8 +232,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/colors-to-lua/static/js/9.8df41080.chunk.js"
   },
   {
-    "revision": "2b018aadbfc703f0c6bf",
-    "url": "/colors-to-lua/static/js/main.b1dea5ef.chunk.js"
+    "revision": "f6f2d4efeb14901b7a8c",
+    "url": "/colors-to-lua/static/js/main.d79fe904.chunk.js"
   },
   {
     "revision": "b51c948c718f84d92c95",
