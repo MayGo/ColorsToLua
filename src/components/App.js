@@ -24,7 +24,8 @@ import { WavyLine } from "./WavyLine";
 
 const comment = `--[[ 
   Copy this code to Roblox Command Bar.
-  Or can copy to your projects workspace ModuleScript file. 
+
+  Or copy to your projects workspace ModuleScript file. 
   And replace: 
       _G.Heightmap = h
   with: 
